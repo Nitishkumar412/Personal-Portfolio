@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nitish's Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #121212;
+      color: #f0f0f0;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    header {
+      background: #1f1f2e;
+      color: white;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      font-weight: 600;
+      padding: 6px 8px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #333355;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px 16px 40px;
+    }
+
+    section {
+      margin-bottom: 50px;
+      scroll-margin-top: 70px;
+    }
+
+    h1, h2 {
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      border-bottom: 3px solid #5964f8;
+      display: inline-block;
+      padding-bottom: 4px;
+      margin-bottom: 18px;
+    }
+
+    p {
+      color: #ccc;
+    }
+
+    /* HOME SECTION */
+    #home {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 60px 0 30px;
+    }
+
+    .home-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .home-text h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #4da6ff;
+      margin-bottom: 10px;
+    }
+
+    .home-desc {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .home-img {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .home-img img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+    }
+    .resume-social-wrapper {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .resume-section a {
+      padding: 8px 22px;
+      background-color: #5964f8;
+      color: white;
+      font-weight: 600;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .resume-section a:hover {
+      background-color: #3d45d0;
+    }
+
+    .social-links-inline {
+      display: flex;
+      gap: 14px;
+    }
+
+    .social-links-inline img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      filter: brightness(90%);
+      transition: filter 0.3s ease;
+    }
+
+    .social-links-inline a:hover img {
+      filter: brightness(130%);
+    }
+
+    /* About */
+    #about {
+      text-align: left;
+    }
+
+    /* Skills */
+    #skills ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      padding-left: 0;
+    }
+
+    #skills li {
+      background-color: #2a2a3b;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-align: center;
+      box-shadow: inset 0 0 6px rgba(89, 100, 248, 0.4);
+    }
+
+    /* Projects */
+    .project-list {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .project-card {
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 15px;
+      background: #1e1e2e;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 5px 15px rgba(89, 100, 248, 0.5);
+    }
+
+    .project-card h3 {
+      color: #84b4ff;
+      margin-bottom: 10px;
+    }
+
+    .project-card a {
+      color: #a0a0ff;
+      font-weight: 700;
+    }
+
+    /* Contact */
+    #contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+    }
+
+    #contact form {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    #contact input,
+    #contact textarea {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1.5px solid #444;
+      background: #222;
+      color: #eee;
+    }
+
+    #contact input:focus,
+    #contact textarea:focus {
+      border-color: #5964f8;
+      outline: none;
+    }
+
+    #contact button {
+      padding: 12px 20px;
+      font-weight: 700;
+      background-color: #5964f8;
+      color: white;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    #contact button:hover {
+      background-color: #3d45d0;
+    }
+
+    .contact-info {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .contact-info h3 {
+      color: #84b4ff;
+      margin-bottom: 10px;
+    }
+
+    .contact-info p {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    @media (max-width: 700px) {
+      #home {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .home-img {
+        margin-top: 20px;
+      }
+
+      .resume-social-wrapper {
+        justify-content: center;
+      }
+
+      #contact {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#home" class="logo">Nitish's Page</a>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home -->
+    <section id="home">
+  <div class="home-text">
+    <h1>Hi, I am <strong>Nitish Kumar</strong></h1>
+    <p class="home-desc">Passionate Third-Year B.Tech Student | Aspiring Software Engineer | Web development  !</p>
+    
+    <div class="resume-social-wrapper" style="flex-direction: column; align-items: flex-start;">
+      <div class="resume-section">
+        <p style="margin-bottom: 50px;"></p>
+        <a href="Nitish_Kumar.pdf" target="_blank">Download Resume</a>
+      </div>
+    
+        <!-- </a> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="home-img">
+    <img src="NITISH.png" alt="Nitish Kumar Profile" />
+  </div>
+</section>
+
+    <!-- About -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello! I’m Nitish Kumar, a passionate and enthusiastic third-year B.Tech student at Narula Institute of Technology, Kolkata, West Bengal, India. Though I started my journey in the world of technology last 2 year ago, my dedication and hunger to learn have helped me grow rapidly in the field of web development.
+
+I specialize in building dynamic, responsive, and user-friendly websites using technologies like HTML, CSS, JavaScript, React, and Node.js. I love turning ideas into functional and visually appealing digital experiences. Every project I work on sharpens my skills and deepens my understanding of modern development practices.
+
+I’m constantly exploring new tools and frameworks, aiming to become a full-stack developer capable of solving real-world problems with clean and efficient code. I believe in continuous learning and enjoy collaborating with others to build meaningful web applications..</p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML & CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>DSA & Java</li>
+        <li>C++</li>
+        <li>React</li>
+        <li>Node.js & Express</li>
+        <li>Git & GitHub</li>
+      </ul>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-list">
+        <div class="project-card">
+          <h3>Alarm Clock</h3>
+          <p>A Python project that allows users to set alarms with customizable tones and snooze options.</p>
+          <a href="https://github.com/Nitishkumar412/Pinnacle-python/blob/main/Alarmclock.py" target="_blank">View on GitHub →</a>
+        </div>
+        <div class="project-card">
+          <h3>Weather Forecast App</h3>
+          <p>Python app that uses third-party APIs to show real-time weather updates.</p>
+          <a href="https://github.com/Nitishkumar412/Pinnacle-python/blob/main/wheatherforecase.py" target="_blank">View on GitHub →</a>
+        </div>
+        <div class="project-card">
+          <h3>To Do List</h3>
+          <p>A simple C++ console-based task manager with add/delete functionality.</p>
+          <a href="https://github.com/Nitishkumar412/CodSoft/blob/main/TO%20DO.cpp" target="_blank">View on GitHub →</a>
+        </div>
+        <div class="project-card">
+          <h3>Tic-Tac-Toe</h3>
+          <p>A two-player console-based Tic-Tac-Toe game made in C++.</p>
+          <a href="https://github.com/Nitishkumar412/CodSoft/blob/main/TIC.cpp" target="_blank">View on GitHub →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <form action="https://formspree.io/f/xzzrreob" method="POST">
+        <h2>Get In Touch</h2>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required />
+        <label for="number">Phone Number</label>
+        <input type="number" id="number" name="number" placeholder="Your contact number" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div class="contact-info">
+        <p style="margin-bottom: 100px;"></p>
+  <h3>Contact</h3>
+  <p><strong>Email:</strong> yugr3996@gmail.com</p>
+ <p><strong>Location:</strong> Kolkata, West Bengal, India</p>
+ <p style="margin-bottom: 60px;"></p>
+ 
+     <!-- social media section -->
+  <div class="social-links-vertical" style="margin-top: 12px; display: flex; flex-direction: column; gap: 12px;">
+  <a href="https://github.com/Nitishkumar412" target="_blank" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit;">
+    <img src="gith.png" alt="GitHub" style="width: 24px; height: 24px;" />
+    <span>GitHub</span>
+    <p style="margin-bottom: 40px;"></p>
+  </a>
+  <a href="https://linkedin.com/in/nitish-kumar-9bbb562b9" target="_blank" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit;">
+    <img src="linkdin.png" alt="LinkedIn" style="width: 24px; height: 24px;" />
+    <span>LinkedIn</span>
+    <p style="margin-bottom: 40px;"></p>
+  </a>
+  <a href="mailto:yugr3996@gmail.com" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit;">
+    <img src="gmail.png" alt="Email" style="width: 24px; height: 24px;" />
+    <span>Email</span>
+    <p style="margin-bottom: 40px;"></p>
+  </a>
+</div>
+
+
+</div>
+
+</html>
